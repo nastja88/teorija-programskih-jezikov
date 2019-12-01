@@ -67,8 +67,8 @@ let rec eval_exp = function
       in S.Cons (x, xs)
   | S.Match (e, e1, x, xs, e2) ->
       begin match eval_exp e with
-      | S.Nil -> e1
-      | S.Cons (v, vs) -> (S.subst [(x, v); (xs, vs)] e2)
+      | S.Nil -> eval_exp e1
+      | S.Cons (v, vs) -> eval_exp (S.subst [(x, v); (xs, vs)] e2)
       | _ -> failwith "List expected"
       end
 and eval_int e =
