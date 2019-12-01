@@ -1,0 +1,8 @@
+LET REC split seznam =
+    MATCH seznam WITH
+    | [] -> {[], []}
+    | e :: es -> 
+        LET seznam1 = split es 
+        IN {FST e :: FST seznam1, SND e :: SND seznam1 }
+IN 
+unzip ({1, 10} :: {2, 11} :: {3, 12} :: {4, 13} :: [])
