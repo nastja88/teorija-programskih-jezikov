@@ -1,0 +1,2 @@
+FUN f1 -> FUN f2 -> 
+f1 (FST f2) (SND f2)
